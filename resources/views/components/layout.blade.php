@@ -22,30 +22,30 @@
                 </svg>
             </button>
             <div class="hidden md:flex items-center gap-14">
-                <nav class="flex gap-14 text-sm font-semibold">
-                    <a href="{{ url('/') }}" class="hover:text-[#FDCB58]">Beranda</a>
-                    <a href="{{ url('/galeri') }}" class="hover:text-[#FDCB58]">Galeri Produk</a>
-                    <a href="#" class="hover:text-[#FDCB58]">Layanan</a>
-                    <a href="#" class="hover:text-[#FDCB58]">Pemesanan</a>
-                    <a href="#" class="hover:text-[#FDCB58]">Kontak</a>
-                    <a href="#" class="hover:text-[#FDCB58]">Lacak Pesanan</a>
-                </nav>
+                <nav class="flex gap-6 text-sm font-semibold">
+                    <a href="/" class="{{ request()->is('/') ? 'text-[#FDCB58]' : 'text-white hover:text-[#FDCB58]' }}">Beranda</a>
+                    <a href="/galeri" class="{{ request()->is('galeri*') ? 'text-[#FDCB58]' : 'text-white hover:text-[#FDCB58]' }}">Galeri Produk</a>
+                    <a href="#" class="text-white hover:text-[#FDCB58]">Layanan</a>
+                    <a href="/pemesanan" class="{{ request()->is('pemesanan*') ? 'text-[#FDCB58]' : 'text-white hover:text-[#FDCB58]' }}">Pemesanan</a>
+                    <a href="#" class="text-white hover:text-[#FDCB58]">Kontak</a>
+                    <a href="#" class="text-white hover:text-[#FDCB58]">Lacak Pesanan</a>
+                </nav>                
                 <a href="#" class="bg-[#FDCB58] text-black font-semibold px-6 py-1.5 rounded-full hover:opacity-90">
                     MASUK
                 </a>
             </div>
         </div>
-        <div x-show="open" class="md:hidden mt-4 space-y-4 text-sm font-semibold px-4">
+        <div x-show="open" class="md:hidden mt-4 space-y-6 text-sm font-semibold px-4">
             <a href="{{ url('/') }}" class="block hover:text-[#FDCB58]">Beranda</a>
-            <a href="{{ url('/galeri') }}" class="hover:text-[#FDCB58]">Galeri Produk</a>
+            <a href="{{ url('/galeri') }}" class="block hover:text-[#FDCB58]">Galeri Produk</a>
             <a href="#" class="block hover:text-[#FDCB58]">Layanan</a>
-            <a href="#" class="block hover:text-[#FDCB58]">Pemesanan</a>
+            <a href="{{ url('/pemesanan') }}" class="block hover:text-[#FDCB58]">Pemesanan</a>
             <a href="#" class="block hover:text-[#FDCB58]">Kontak</a>
             <a href="#" class="block hover:text-[#FDCB58]">Lacak Pesanan</a>
             <a href="#" class="block bg-[#FDCB58] text-black font-semibold px-4 py-2 rounded-full w-fit">
                 MASUK
             </a>
-        </div>
+        </div>        
     </header>
     
     <main class="flex-grow">
@@ -54,7 +54,7 @@
     
     <footer class="bg-[#2C3E50] text-white text-sm text-center py-4">
         <p class="opacity-70">
-            &copy; 2025 Makkasau Stiker. Semua hak dilindungi
+            &copy; 2025 Makkasar Stiker. Semua hak dilindungi
         </p>
     </footer>
 

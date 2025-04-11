@@ -49,4 +49,19 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="bg-white py-16 px-10">
+            <div class="text-center text-[#0A3D62]">
+                <h2 class="font-bold text-4xl mb-6">Ingin Buat Custom Plat Kendaraan?</h2>
+                <p>Hubungi kami sekarang untuk mendapatkan penawaran khusus dan konsultasi gratis tentang<br>custom
+                    plat kendaraan anda</p>
+            </div>
+            <div class="mt-20 text-center space-x-20">
+                <a href="#" class="font-lg text-black bg-[#FDCB58] px-8 py-2 rounded-full">
+                    BUAT PESANAN
+                </a>
+            </div>
+        </div>
+    </section>
 </x-layout>

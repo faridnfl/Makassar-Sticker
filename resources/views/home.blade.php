@@ -1,7 +1,7 @@
 <x-layout>
-    <section class="relative bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/bg-plat.jpg') }}');">
-        <div class="absolute inset-0 bg-[#0A3D62]/80"></div>
-        <div class="relative  mx-auto px-18 py-10 text-white">
+    <section class="relative bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/bg-home.png') }}');">
+        <div class="absolute inset-0 bg-[#0A3D62]/10"></div>
+        <div class="relative  mx-auto px-18 py-22 text-white">
             <p class="text-lg text-[#FDCB58] font-semibold mb-2">Selamat Datang</p>
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
                 Temukan Plat Kendaraan <br>
@@ -13,7 +13,7 @@
                 Kami memiliki komitmen untuk memberikan layanan terbaik sejak tahun 2015.
             </p>
     
-            <div class="mt-26 flex flex-wrap gap-24 justify-center">
+            <div class="mt-10 md:mt-26 flex flex-wrap gap-4 md:gap-24 justify-center">
                 <a href="#tentang" class="bg-[#FDCB58] text-black font-semibold px-6 py-3 rounded-full hover:opacity-90 transition">
                     TENTANG KAMI
                 </a>
@@ -24,7 +24,7 @@
         </div>
     </section>
 
-    <section class="bg-[#f8f9fa] py-8">
+    <section class="bg-[#f8f9fa] py-18">
         <div class="max-w-xl mx-auto text-center px-4">
             <p class="text-[#FDCB58] font-semibold">STATUS PESANAN</p>
             <h2 class="text-3xl md:text-4xl font-extrabold text-[#0A3D62]">Lacak Pesanan Anda</h2>
@@ -48,36 +48,26 @@
     
 
     <section class="bg-[#f8f9fa] py-20">
-        <div class="max-w-7xl mx-auto px-14 text-center">
+        <div class="max-w-7xl mx-auto px-14">
             <p class="text-[#FDCB58] font-semibold">HASIL KARYA KAMI</p>
             <h2 class="text-3xl md:text-4xl font-extrabold text-[#0A3D62]">Galeri Produk</h2>
-            <div class="w-16 h-1 bg-[#FDCB58] mx-auto mt-2 mb-6 rounded-full"></div>
+            <div class="w-16 h-1 bg-[#FDCB58] mx-auto mt-2 mb-6 rounded-xl"></div>
             <p class="text-gray-600 mb-12 max-w-xl mx-auto">
                 Temukan koleksi plat kendaraan kustom kami dengan material berkualitas tinggi
             </p>
             <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <img src="{{ asset('images/produk-1.jpg') }}" alt="Plat Vintage" class="w-full h-48 object-cover rounded-t-xl">
-                    <div class="p-4 text-left">
-                        <h3 class="text-[#0A3D62] font-bold text-lg mb-1">Custom Plat Mobil Vintage</h3>
-                        <p class="text-sm text-gray-600">Plat mobil dengan design vintage dan klasik</p>
+                @foreach ($featuredProducts as $product)
+                    <div class="bg-[#f8f9fa] rounded-xl px-2 py-4 shadow-md">
+                        <div class="mb-4">
+                            <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->title }}" class="w-full h-48 object-cover rounded-t-xl rounded-b-xl">
+                        </div>
+                        <h3 class="text-[#0A3D62] font-bold text-xl mb-8">{{ $product->title }}</h3>
+                        <p class="text-base text-gray-600">
+                            {{ $product->description }}
+                        </p>
                     </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <img src="{{ asset('images/produk-2.jpg') }}" alt="Plat Sport" class="w-full h-48 object-cover rounded-t-xl">
-                    <div class="p-4 text-left">
-                        <h3 class="text-[#0A3D62] font-bold text-lg mb-1">Custom Plat Mobil Sport</h3>
-                        <p class="text-sm text-gray-600">Plat mobil dengan desain modern dan warna kontras</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <img src="{{ asset('images/produk-3.jpg') }}" alt="Plat Luxury" class="w-full h-48 object-cover rounded-t-xl">
-                    <div class="p-4 text-left">
-                        <h3 class="text-[#0A3D62] font-bold text-lg mb-1">Custom Plat Mobil Luxury</h3>
-                        <p class="text-sm text-gray-600">Plat motor dengan design mewah dan font elegan</p>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+            </div>            
         </div>
     </section>
     
@@ -91,30 +81,30 @@
             </p>
 
             <div class="grid gap-8 grid-cols-1 sm:grid-cols-2  md:grid-cols-3">
-                <div class="bg-[#f8f9fa] rounded-xl p-8 shadow-md text-center">
-                    <div class="mb-4">
-                        <img src="{{ asset('images/icon-mobil.png') }}" alt="Plat Mobil" class="mx-auto w-16 h-16">
+                <div class="bg-[#f8f9fa] rounded-xl px-8 py-8 shadow-md text-center">
+                    <div class="mb-8">
+                        <img src="{{ asset('images/icon-car.png') }}" alt="Plat Mobil" class="mx-auto w-16 h-16">
                     </div>
-                    <h3 class="text-[#0A3D62] font-bold text-lg mb-2">Plat Mobil Custom</h3>
-                    <p class="text-sm text-gray-600">
+                    <h3 class="text-[#0A3D62] font-bold text-xl mb-8">Plat Mobil Custom</h3>
+                    <p class="text-base text-gray-600">
                         Pembuatan Custom plat nomor mobil dengan berbagai pilihan design, ukuran, dan material premium yang tahan lama.
                     </p>
                 </div>
-                <div class="bg-[#f8f9fa] rounded-xl p-8 shadow-md text-center">
-                    <div class="mb-4">
+                <div class="bg-[#f8f9fa] rounded-xl px-8 py-8 shadow-md text-center">
+                    <div class="mb-8">
                         <img src="{{ asset('images/icon-motor.png') }}" alt="Plat Motor" class="mx-auto w-16 h-16">
                     </div>
-                    <h3 class="text-[#0A3D62] font-bold text-lg mb-2">Plat Motor Custom</h3>
-                    <p class="text-sm text-gray-600">
+                    <h3 class="text-[#0A3D62] font-bold text-xl mb-8">Plat Motor Custom</h3>
+                    <p class="text-base text-gray-600">
                         Design dan cetak plat nomor motor custom dengan ukuran standar maupun khusus sesuai kebutuhan anda.
                     </p>
                 </div>
-                <div class="bg-[#f8f9fa] rounded-xl p-8 shadow-md text-center">
-                    <div class="mb-4">
+                <div class="bg-[#f8f9fa] rounded-xl px-8 py-8 shadow-md text-center">
+                    <div class="mb-8">
                         <img src="{{ asset('images/icon-desain.png') }}" alt="Custom Design" class="mx-auto w-16 h-16">
                     </div>
-                    <h3 class="text-[#0A3D62] font-bold text-lg mb-2">Custom design</h3>
-                    <p class="text-sm text-gray-600">
+                    <h3 class="text-[#0A3D62] font-bold text-xl mb-8">Custom design</h3>
+                    <p class="text-base text-gray-600">
                         Layanan design custom plat kendaraan dengan pilihan font, warna, dan grafis sesuai keinginan pelanggan.
                     </p>
                 </div>
@@ -194,25 +184,25 @@
                     <ul class="text-sm text-[#0A3D62] space-y-8 ml-4 font-semibold">
                         <li class="flex gap-3 items-center">
                             <div class="w-6 flex justify-center ml-[7%]">
-                                <img src="{{ asset('images/icon-hp.png') }}" class="w-5 h-5" alt="HP">
+                                <img src="{{ asset('images/icon-hp.png') }}" class="w-18 h-8" alt="HP">
                             </div>
                             <span>+62 8528-2534-171</span>
                         </li>
                         <li class="flex gap-3 items-center">
                             <div class="w-6 flex justify-center ml-[7%]">
-                                <img src="{{ asset('images/icon-fb.png') }}" class="w-5 h-5" alt="Facebook">
+                                <img src="{{ asset('images/icon-fb.png') }}" class="w-18 h-8" alt="Facebook">
                             </div>
                             <span>Makkasar Stiker</span>
                         </li>
                         <li class="flex gap-3 items-center">
                             <div class="w-6 flex justify-center ml-[7%]">
-                                <img src="{{ asset('images/icon-wa.png') }}" class="w-5 h-5" alt="WhatsApp">
+                                <img src="{{ asset('images/icon-wa.png') }}" class="w-18 h-8" alt="WhatsApp">
                             </div>
                             <span>+62 8528-2534-171</span>
                         </li>
                         <li class="flex gap-3 items-center">
                             <div class="w-6 flex justify-center ml-[7%]">
-                                <img src="{{ asset('images/icon-ig.png') }}" class="w-5 h-5" alt="Instagram">
+                                <img src="{{ asset('images/icon-ig.png') }}" class="w-18 h-8" alt="Instagram">
                             </div>
                             <span>@makkasarstiker</span>
                         </li>
