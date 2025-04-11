@@ -7,7 +7,7 @@
         <div class="max-w-7xl mx-auto px-14 text-center">
             <h2 class="text-2xl font-bold text-[#0A3D62] mb-4">Galeri Produk</h2>
             <p class="text-gray-600 mb-10 max-w-2xl mx-auto">
-                Berikut adalah beberapa contoh hasil produk custom dari kendaraan dari Makkasar Sticker<br>
+                Berikut adalah beberapa contoh hasil produk custom dari kendaraan dari Makkasau Sticker<br>
                 Tersedia berbagai pilihan design dan model yang bisa disesuaikan dengan keinginan anda.
             </p>
             <div class="flex justify-center gap-4 mb-10 flex-wrap">

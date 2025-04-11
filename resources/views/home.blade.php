@@ -9,7 +9,7 @@
                 Kebutuhan
             </h1>
             <p class="text-base md:text-lg text-gray-200 max-w-3xl">
-                Makkasar Sticker menyediakan jasa pembuatan custom plat kendaraan premium dengan kualitas terbaik.
+                Makkasau Sticker menyediakan jasa pembuatan custom plat kendaraan premium dengan kualitas terbaik.
                 Kami memiliki komitmen untuk memberikan layanan terbaik sejak tahun 2015.
             </p>
     
@@ -48,7 +48,7 @@
     
 
     <section class="bg-[#f8f9fa] py-20">
-        <div class="max-w-7xl mx-auto px-14">
+        <div class="max-w-7xl mx-auto px-14 text-center">
             <p class="text-[#FDCB58] font-semibold">HASIL KARYA KAMI</p>
             <h2 class="text-3xl md:text-4xl font-extrabold text-[#0A3D62]">Galeri Produk</h2>
             <div class="w-16 h-1 bg-[#FDCB58] mx-auto mt-2 mb-6 rounded-xl"></div>

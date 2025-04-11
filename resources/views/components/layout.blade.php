@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makkasar Sticker</title>
+    <title>Makkasau Sticker</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="flex flex-col min-h-screen">
     <header class="bg-[#0A3D62] text-white py-4 px-4 md:px-8" x-data="{ open: false }">
         <div class="mx-auto flex items-center justify-between">
             <div class="text-2xl font-bold">
-                Makkasar <span class="text-[#FDCB58]">Sticker</span>
+                Makkasau <span class="text-[#FDCB58]">Sticker</span>
             </div>
             <button class="md:hidden focus:outline-none" @click="open = !open">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -54,7 +54,7 @@
     
     <footer class="bg-[#2C3E50] text-white text-sm text-center py-4">
         <p class="opacity-70">
-            &copy; 2025 Makkasar Stiker. Semua hak dilindungi
+            &copy; 2025 Makkasau Sticker. Semua hak dilindungi
         </p>
     </footer>
 
