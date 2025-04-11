@@ -1,7 +1,5 @@
 # Makkasar Sticker
 
-Laravel project untuk menampilkan galeri produk plat custom.
-
 ## Cara Jalankan
 
 ```bash
