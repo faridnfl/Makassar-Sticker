@@ -19,8 +19,8 @@ class Order extends Model
         'font_type',
         'finishing',
         'quantity',
+        'status',
         'notes',
         'stnk_file',
     ];
-    
 }

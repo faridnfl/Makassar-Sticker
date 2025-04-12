@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Support\Facades\Storage;
+
 
 class OrderController extends Controller
 {
@@ -40,12 +42,18 @@ class OrderController extends Controller
         return view('order.preview', ['data' => $validated]);
     }
 
-    public function submit(Request $request)
+        public function submit(Request $request)
     {
         $validated = $request->all();
-    
+
         $generatedId = 'MS-' . now()->format('dm') . '-' . rand(1000, 9999);
-    
+
+        if (!empty($validated['stnk_file']) && \Storage::disk('public')->exists($validated['stnk_file'])) {
+            $newPath = 'stnk_files/' . basename($validated['stnk_file']);
+            \Storage::disk('public')->move($validated['stnk_file'], $newPath);
+            $validated['stnk_file'] = $newPath;
+        }
+
         $order = Order::create([
             'order_id' => $generatedId,
             'name' => $validated['name'],
@@ -62,7 +70,7 @@ class OrderController extends Controller
             'notes' => $validated['notes'] ?? null,
             'stnk_file' => $validated['stnk_file'] ?? null,
         ]);
-    
+
         return redirect()->route('order.success', ['id' => $order->order_id]);
     }
 
