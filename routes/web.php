@@ -7,6 +7,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminOrderController;
 use Illuminate\Http\Request;
 
+Route::get('/lacak', [OrderController::class, 'trackPage'])->name('order.trackPage');
+Route::post('/lacak', [OrderController::class, 'track'])->name('order.track');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/galeri', [ProductController::class, 'index']);

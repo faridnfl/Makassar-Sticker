@@ -58,7 +58,7 @@
                     plat kendaraan anda</p>
             </div>
             <div class="mt-20 text-center space-x-20">
-                <a href="#" class="font-lg text-black bg-[#FDCB58] px-8 py-2 rounded-full">
+                <a href="/pemesanan" class="font-lg text-black bg-[#FDCB58] px-8 py-2 rounded-full">
                     BUAT PESANAN
                 </a>
             </div>

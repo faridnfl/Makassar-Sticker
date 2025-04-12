@@ -6,7 +6,7 @@
     <title>Makkasau Sticker</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="">
+<body class="flex flex-col min-h-screen">
     <header class="bg-[#0A3D62] text-white py-4 px-4 md:px-8" x-data="{ open: false }">
         <div class="mx-auto flex items-center justify-between">
             <div class="text-2xl font-bold">
@@ -28,7 +28,9 @@
                     <a href="#" class="text-white hover:text-[#FDCB58]">Layanan</a>
                     <a href="/pemesanan" class="{{ request()->is('pemesanan*') ? 'text-[#FDCB58]' : 'text-white hover:text-[#FDCB58]' }}">Pemesanan</a>
                     <a href="#" class="text-white hover:text-[#FDCB58]">Kontak</a>
-                    <a href="#" class="text-white hover:text-[#FDCB58]">Lacak Pesanan</a>
+                    <a href="{{ route('order.trackPage') }}" class="{{ request()->is('lacak') ? 'text-[#FDCB58]' : 'text-white hover:text-[#FDCB58]' }}">
+                        Lacak Pesanan
+                    </a>
                 </nav>                
                 <a href="{{ route('admin.login') }}" class="bg-[#FDCB58] text-black font-semibold px-6 py-1.5 rounded-full hover:opacity-90">
                     MASUK
@@ -41,14 +43,16 @@
             <a href="#" class="block hover:text-[#FDCB58]">Layanan</a>
             <a href="{{ url('/pemesanan') }}" class="block hover:text-[#FDCB58]">Pemesanan</a>
             <a href="#" class="block hover:text-[#FDCB58]">Kontak</a>
-            <a href="#" class="block hover:text-[#FDCB58]">Lacak Pesanan</a>
+            <a href="{{ route('order.trackPage') }}" class="{{ request()->is('lacak') ? 'text-[#FDCB58]' : 'text-white hover:text-[#FDCB58]' }}">
+                Lacak Pesanan
+            </a>
             <a href="{{ route('admin.login') }}" class="block bg-[#FDCB58] text-black font-semibold px-4 py-2 rounded-full w-fit">
                 MASUK
             </a>
         </div>        
     </header>
     
-    <main class="">
+    <main class="flex-1">
         {{ $slot }}
     </main>
     

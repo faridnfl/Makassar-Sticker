@@ -78,4 +78,34 @@ class OrderController extends Controller
     {
         return view('order.success', ['order_id' => $id]);
     }
+
+        public function trackPage(Request $request)
+    {
+        $order = null;
+
+        if ($request->has('order_id')) {
+            $order = Order::where('order_id', $request->order_id)->first();
+
+            if (!$order) {
+                return view('order.track')->with('error', 'ID Pesanan tidak ditemukan.');
+            }
+        }
+
+        return view('order.track', compact('order'));
+    }
+
+        public function track(Request $request)
+    {
+        $request->validate([
+            'order_id' => 'required|string'
+        ]);
+
+        $order = Order::where('order_id', $request->order_id)->first();
+
+        if (!$order) {
+            return redirect()->route('order.trackPage')->with('error', 'ID Pemesanan tidak ditemukan.');
+        }
+
+        return view('order.track', ['order' => $order]);
+    }
 }

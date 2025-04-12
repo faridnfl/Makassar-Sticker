@@ -33,15 +33,20 @@
                 Masukkan ID pesanan anda untuk melihat status pemesanan produk custom plat kendaraan
             </p>
             <div class="bg-white shadow-md rounded-xl px-6 py-8">
-                <input
-                    type="text"
-                    placeholder="Masukkan ID Pesanan (contoh: MS-2025xxxxxxx)"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md mb-6 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A3D62]"
-                />
-                <button
-                    class="w-full bg-[#0A3D62] text-white font-semibold py-3 rounded-md hover:opacity-90 transition">
-                    CEK STATUS PESANAN
-                </button>
+                <form method="GET" action="{{ route('order.track') }}">
+                    <input
+                        type="text"
+                        name="order_id"
+                        placeholder="Masukkan ID Pesanan (contoh: MS-2025xxxxxxx)"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md mb-6 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A3D62]"
+                        required
+                    />
+                    <button
+                        type="submit"
+                        class="w-full bg-[#0A3D62] text-white font-semibold py-3 rounded-md hover:opacity-90 transition">
+                        CEK STATUS PESANAN
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -220,7 +225,7 @@
                     plat kendaraan anda</p>
             </div>
             <div class="mt-20 text-center space-x-20">
-                <a href="#" class="font-lg text-black bg-[#FDCB58] px-8 py-2 rounded-full">
+                <a href="/pemesanan" class="font-lg text-black bg-[#FDCB58] px-8 py-2 rounded-full">
                     PESAN SEKARANG
                 </a>
             </div>
