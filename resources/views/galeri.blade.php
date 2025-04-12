@@ -35,7 +35,7 @@
             <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                 @foreach ($products as $product)
                     <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                        <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->title }}"
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->title }}"
                             class="w-full h-48 object-cover rounded-t-xl">
                         <div class="p-4 text-left">
                             <h3 class="text-[#0A3D62] font-bold text-lg mb-1">{{ $product->title }}</h3>

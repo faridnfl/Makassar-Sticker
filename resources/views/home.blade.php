@@ -1,5 +1,6 @@
 <x-layout>
-    <section class="relative bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/bg-home.png') }}');">
+    <section class="relative bg-cover bg-center bg-no-repeat"
+        style="background-image: url('{{ asset('images/bg-home.png') }}');">
         <div class="absolute inset-0 bg-[#0A3D62]/10"></div>
         <div class="relative  mx-auto px-18 py-22 text-white">
             <p class="text-lg text-[#FDCB58] font-semibold mb-2">Selamat Datang</p>
@@ -12,15 +13,17 @@
                 Makkasau Sticker menyediakan jasa pembuatan custom plat kendaraan premium dengan kualitas terbaik.
                 Kami memiliki komitmen untuk memberikan layanan terbaik sejak tahun 2015.
             </p>
-    
+
             <div class="mt-10 md:mt-26 flex flex-wrap gap-4 md:gap-24 justify-center">
-                <a href="#tentang" class="bg-[#FDCB58] text-black font-semibold px-6 py-3 rounded-full hover:opacity-90 transition">
+                <a href="#tentang"
+                    class="bg-[#FDCB58] text-black font-semibold px-6 py-3 rounded-full hover:opacity-90 transition">
                     TENTANG KAMI
                 </a>
-                <a href="#kontak" class="border border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+                <a href="#kontak"
+                    class="border border-white text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
                     HUBUNGI KAMI
                 </a>
-            </div>            
+            </div>
         </div>
     </section>
 
@@ -34,15 +37,10 @@
             </p>
             <div class="bg-white shadow-md rounded-xl px-6 py-8">
                 <form method="GET" action="{{ route('order.track') }}">
-                    <input
-                        type="text"
-                        name="order_id"
-                        placeholder="Masukkan ID Pesanan (contoh: MS-2025xxxxxxx)"
+                    <input type="text" name="order_id" placeholder="Masukkan ID Pesanan (contoh: MS-2025xxxxxxx)"
                         class="w-full px-4 py-3 border border-gray-300 rounded-md mb-6 text-sm focus:outline-none focus:ring-2 focus:ring-[#0A3D62]"
-                        required
-                    />
-                    <button
-                        type="submit"
+                        required />
+                    <button type="submit"
                         class="w-full bg-[#0A3D62] text-white font-semibold py-3 rounded-md hover:opacity-90 transition">
                         CEK STATUS PESANAN
                     </button>
@@ -50,7 +48,7 @@
             </div>
         </div>
     </section>
-    
+
 
     <section class="bg-[#f8f9fa] py-20">
         <div class="max-w-7xl mx-auto px-14 text-center">
@@ -62,20 +60,23 @@
             </p>
             <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                 @foreach ($featuredProducts as $product)
-                    <div class="bg-[#f8f9fa] rounded-xl px-2 py-4 shadow-md">
+                    <div class="bg-white rounded-xl px-2 py-4 shadow-md">
                         <div class="mb-4">
-                            <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->title }}" class="w-full h-48 object-cover rounded-t-xl rounded-b-xl">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->title }}"
+                                class="w-full h-48 object-cover rounded-t-xl rounded-b-xl">
                         </div>
-                        <h3 class="text-[#0A3D62] font-bold text-xl mb-8">{{ $product->title }}</h3>
-                        <p class="text-base text-gray-600">
-                            {{ $product->description }}
-                        </p>
+                        <div class="px-3">
+                            <h3 class="text-[#0A3D62] font-bold text-xl mb-2 text-left">{{ $product->title }}</h3>
+                            <p class="text-base text-gray-600 text-left">
+                                {{ $product->description }}
+                            </p>
+                        </div>
                     </div>
                 @endforeach
-            </div>            
+            </div>
         </div>
     </section>
-    
+
     <section class="bg-white py-20">
         <div class="max-w-7xl mx-auto px-14 text-center">
             <p class="text-[#FDCB58] font-semibold">Layanan</p>
@@ -92,7 +93,8 @@
                     </div>
                     <h3 class="text-[#0A3D62] font-bold text-xl mb-8">Plat Mobil Custom</h3>
                     <p class="text-base text-gray-600">
-                        Pembuatan Custom plat nomor mobil dengan berbagai pilihan design, ukuran, dan material premium yang tahan lama.
+                        Pembuatan Custom plat nomor mobil dengan berbagai pilihan design, ukuran, dan material premium
+                        yang tahan lama.
                     </p>
                 </div>
                 <div class="bg-[#f8f9fa] rounded-xl px-8 py-8 shadow-md text-center">
@@ -101,7 +103,8 @@
                     </div>
                     <h3 class="text-[#0A3D62] font-bold text-xl mb-8">Plat Motor Custom</h3>
                     <p class="text-base text-gray-600">
-                        Design dan cetak plat nomor motor custom dengan ukuran standar maupun khusus sesuai kebutuhan anda.
+                        Design dan cetak plat nomor motor custom dengan ukuran standar maupun khusus sesuai kebutuhan
+                        anda.
                     </p>
                 </div>
                 <div class="bg-[#f8f9fa] rounded-xl px-8 py-8 shadow-md text-center">
@@ -110,13 +113,14 @@
                     </div>
                     <h3 class="text-[#0A3D62] font-bold text-xl mb-8">Custom design</h3>
                     <p class="text-base text-gray-600">
-                        Layanan design custom plat kendaraan dengan pilihan font, warna, dan grafis sesuai keinginan pelanggan.
+                        Layanan design custom plat kendaraan dengan pilihan font, warna, dan grafis sesuai keinginan
+                        pelanggan.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section class="bg-white py-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-[#FDCB58] font-semibold">Informasi</p>
@@ -166,7 +170,8 @@
                 </div>
                 <div class="bg-[#f8f9fa] p-6 rounded-xl shadow-md w-[85%] max-w-[400px] mx-auto">
                     <div class="flex justify-center mb-10 relative">
-                        <div class="bg-[#FDCB58] p-2 rounded-full absolute left-1/6 -translate-x-1/2 top-1/2 -translate-y-1/2">
+                        <div
+                            class="bg-[#FDCB58] p-2 rounded-full absolute left-1/6 -translate-x-1/2 top-1/2 -translate-y-1/2">
                             <img src="{{ asset('images/icon-map.png') }}" class="w-5 h-5" alt="Icon Lokasi">
                         </div>
                         <h3 class="text-[#0A3D62] font-bold text-xl">Lokasi Kami</h3>
@@ -181,7 +186,8 @@
                 </div>
                 <div class="bg-[#f8f9fa] p-6 rounded-xl shadow-md w-[85%] max-w-[400px] mx-auto">
                     <div class="flex justify-center mb-10 relative">
-                        <div class="bg-[#FDCB58] p-2 rounded-full absolute left-1/6 -translate-x-1/2 top-1/2 -translate-y-1/2">
+                        <div
+                            class="bg-[#FDCB58] p-2 rounded-full absolute left-1/6 -translate-x-1/2 top-1/2 -translate-y-1/2">
                             <img src="{{ asset('images/icon-phone.png') }}" class="w-5 h-5" alt="Icon Kontak">
                         </div>
                         <h3 class="text-[#0A3D62] font-bold text-xl">Kontak Kami</h3>
@@ -216,7 +222,7 @@
             </div>
         </div>
     </section>
-    
+
     <section>
         <div class="bg-[#0A3D62] py-16">
             <div class="text-center text-white">

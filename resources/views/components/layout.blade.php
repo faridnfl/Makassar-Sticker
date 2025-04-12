@@ -22,7 +22,7 @@
                 </svg>
             </button>
             <div class="hidden md:flex items-center gap-14">
-                <nav class="flex gap-6 text-sm font-semibold">
+                <nav class="flex gap-20 text-sm font-semibold">
                     <a href="/" class="{{ request()->is('/') ? 'text-[#FDCB58]' : 'text-white hover:text-[#FDCB58]' }}">Beranda</a>
                     <a href="/galeri" class="{{ request()->is('galeri*') ? 'text-[#FDCB58]' : 'text-white hover:text-[#FDCB58]' }}">Galeri Produk</a>
                     <a href="#" class="text-white hover:text-[#FDCB58]">Layanan</a>

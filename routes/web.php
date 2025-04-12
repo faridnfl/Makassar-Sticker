@@ -47,3 +47,7 @@ Route::prefix('admin/orders')->middleware('admin.only')->group(function () {
     Route::put('/{id}/update', [AdminOrderController::class, 'update'])->name('admin.orders.update');
     Route::delete('/{id}', [AdminOrderController::class, 'destroy'])->name('admin.orders.destroy');
 });
+
+Route::get('/admin/products', [ProductController::class, 'adminIndex'])->name('admin.products');
+Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
+Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');

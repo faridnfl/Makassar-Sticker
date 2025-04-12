@@ -22,7 +22,7 @@
                 </form>
             </div>
         @endif
-
+        
         @if (isset($order))
             <div class="bg-white rounded-xl shadow-md p-6">
                 <div class="bg-[#0A3D62] text-white text-center py-4 rounded-t-xl">

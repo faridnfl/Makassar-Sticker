@@ -6,69 +6,110 @@
             </div>
         @endif
         <div class="bg-white shadow-md rounded-xl overflow-hidden py-4">
-            <div class="px-10 py-2 border-b font-semibold text-[#0A3D62] text-lg">Daftar Pesanan</div>
-
-            <table class="w-full text-sm text-left">
-                <thead class="bg-gray-100 text-gray-600">
-                    <tr>
-                        <th class="px-4 py-3">Id_Pesanan</th>
-                        <th class="px-4 py-3">Pelanggan</th>
-                        <th class="px-4 py-3">WhatsApp</th>
-                        <th class="px-4 py-3">Nomor Polisi</th>
-                        <th class="px-4 py-3">Bahan</th>
-                        <th class="px-4 py-3">Jumlah</th>
-                        <th class="px-4 py-3">Status</th>
-                        <th class="px-4 py-3">Tanggal</th>
-                        <th class="px-4 py-3">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y">
-                    @foreach ($orders as $order)
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-4 py-3 font-semibold">{{ $order->order_id }}</td>
-                            <td class="px-4 py-3">{{ $order->name }}</td>
-                            <td class="px-4 py-3">{{ $order->phone }}</td>
-                            <td class="px-4 py-3">{{ $order->vehicle_number }}</td>
-                            <td class="px-4 py-3">{{ $order->plate_material }}</td>
-                            <td class="px-4 py-3">{{ $order->quantity }}</td>
-                            <td class="px-4 py-3">
-                                <form method="POST" action="{{ route('admin.orders.updateStatus', $order->id) }}">
-                                    @csrf @method('PUT')
-                                    <select name="status" onchange="this.form.submit()"
-                                        class="text-xs bg-white border rounded px-2 py-1">
-                                        @foreach (['dalam proses', 'pesanan diterima', 'siap diambil', 'selesai'] as $status)
-                                            <option value="{{ $status }}"
-                                                {{ $order->status === $status ? 'selected' : '' }}>
-                                                {{ ucfirst($status) }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </form>
-                            </td>
-                            <td class="px-4 py-3">{{ $order->created_at->format('Y-m-d') }}</td>
-                            <td class="px-4 py-3">
-                                <div class="flex gap-2 items-center">
-                                    <button @click="selectedOrder = {{ Js::from($order) }}; showModal = true"
-                                        class="text-blue-600 hover:text-blue-800 text-sm cursor-pointer">👁️</button>
-                                    <button @click="selectedOrder = {{ Js::from($order) }}; showEditModal = true"
-                                        class="text-orange-500 hover:text-orange-700 text-sm cursor-pointer">
-                                        ✏️
-                                    </button>
-                                    <form action="{{ route('admin.orders.destroy', $order->id) }}" method="POST"
-                                        onsubmit="return confirm('Yakin ingin menghapus pesanan ini?')">
-                                        @csrf @method('DELETE')
-                                        <button type="submit"
-                                            class="text-red-600 hover:text-red-800 text-sm cursor-pointer">🗑️</button>
-                                    </form>
-                                </div>
-                            </td>
+            <div class="px-10 py-4 border-b font-semibold text-[#0A3D62] text-lg">Daftar Pesanan</div>
+            <div class="hidden md:block overflow-x-auto">
+                <table class="w-full text-sm text-left min-w-[800px]">
+                    <thead class="bg-gray-100 text-gray-600">
+                        <tr>
+                            <th class="px-4 py-3">ID</th>
+                            <th class="px-4 py-3">Nama</th>
+                            <th class="px-4 py-3">WhatsApp</th>
+                            <th class="px-4 py-3">No Polisi</th>
+                            <th class="px-4 py-3">Bahan</th>
+                            <th class="px-4 py-3">Jumlah</th>
+                            <th class="px-4 py-3">Status</th>
+                            <th class="px-4 py-3">Tanggal</th>
+                            <th class="px-4 py-3">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="divide-y">
+                        @foreach ($orders as $order)
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3 font-semibold">{{ $order->order_id }}</td>
+                                <td class="px-4 py-3">{{ $order->name }}</td>
+                                <td class="px-4 py-3">{{ $order->phone }}</td>
+                                <td class="px-4 py-3">{{ $order->vehicle_number }}</td>
+                                <td class="px-4 py-3">{{ $order->plate_material }}</td>
+                                <td class="px-4 py-3">{{ $order->quantity }}</td>
+                                <td class="px-4 py-3">
+                                    <form method="POST" action="{{ route('admin.orders.updateStatus', $order->id) }}">
+                                        @csrf @method('PUT')
+                                        <select name="status" onchange="this.form.submit()"
+                                            class="text-xs bg-white border rounded px-2 py-1">
+                                            @foreach (['dalam proses', 'pesanan diterima', 'siap diambil', 'selesai'] as $status)
+                                                <option value="{{ $status }}"
+                                                    {{ $order->status === $status ? 'selected' : '' }}>
+                                                    {{ ucfirst($status) }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </form>
+                                </td>
+                                <td class="px-4 py-3">{{ $order->created_at->format('Y-m-d') }}</td>
+                                <td class="px-4 py-3">
+                                    <div class="flex gap-2 items-center">
+                                        <button @click="selectedOrder = {{ Js::from($order) }}; showModal = true"
+                                            class="text-blue-600 hover:text-blue-800 text-sm cursor-pointer">👁️</button>
+                                        <button @click="selectedOrder = {{ Js::from($order) }}; showEditModal = true"
+                                            class="text-orange-500 hover:text-orange-700 text-sm cursor-pointer">✏️</button>
+                                        <form action="{{ route('admin.orders.destroy', $order->id) }}" method="POST"
+                                            onsubmit="return confirm('Yakin ingin menghapus pesanan ini?')">
+                                            @csrf @method('DELETE')
+                                            <button type="submit"
+                                                class="text-red-600 hover:text-red-800 text-sm cursor-pointer">🗑️</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="md:hidden space-y-4">
+                @foreach ($orders as $order)
+                    <div class="bg-white rounded-xl shadow-md p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <p class="text-sm font-bold text-[#0A3D62]">#{{ $order->order_id }}</p>
+                            <form method="POST" action="{{ route('admin.orders.updateStatus', $order->id) }}">
+                                @csrf
+                                @method('PUT')
+                                <select name="status" onchange="this.form.submit()"
+                                    class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
+                                    @foreach (['dalam proses', 'pesanan diterima', 'siap diambil', 'selesai'] as $status)
+                                        <option value="{{ $status }}"
+                                            {{ $order->status === $status ? 'selected' : '' }}>
+                                            {{ ucfirst($status) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </form>
+                        </div>
+                        <p class="text-sm text-gray-700"><strong>Nama:</strong> {{ $order->name }}</p>
+                        <p class="text-sm text-gray-700"><strong>WA:</strong> {{ $order->phone }}</p>
+                        <p class="text-sm text-gray-700"><strong>Plat:</strong> {{ $order->vehicle_number }}</p>
+                        <p class="text-sm text-gray-700"><strong>Bahan:</strong> {{ $order->plate_material }}</p>
+                        <p class="text-sm text-gray-700"><strong>Jumlah:</strong> {{ $order->quantity }}</p>
+                        <p class="text-sm text-gray-700"><strong>Tanggal:</strong>
+                            {{ $order->created_at->format('Y-m-d') }}</p>
+                        <div class="flex gap-3 mt-3">
+                            <button @click="selectedOrder = {{ Js::from($order) }}; showModal = true"
+                                class="text-blue-600 hover:text-blue-800 text-sm">👁️</button>
+                            <button @click="selectedOrder = {{ Js::from($order) }}; showEditModal = true"
+                                class="text-orange-500 hover:text-orange-700 text-sm">✏️</button>
+                            <form action="{{ route('admin.orders.destroy', $order->id) }}" method="POST"
+                                onsubmit="return confirm('Yakin ingin menghapus pesanan ini?')">
+                                @csrf @method('DELETE')
+                                <button type="submit" class="text-red-600 hover:text-red-800 text-sm">🗑️</button>
+                            </form>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
             <div class="mt-6 px-6">
                 {{ $orders->links() }}
-            </div>            
+            </div>
         </div>
 
         <template x-if="showModal">
